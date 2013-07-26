@@ -1,0 +1,1 @@
+A little logging utility I wrote to avoid frustrations when debugging cordova applications.
