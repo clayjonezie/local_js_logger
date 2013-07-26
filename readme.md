@@ -8,7 +8,7 @@ Ok, I'm going to have to expand later. But essentially take local_js_logger.js a
 
 ##Why did you do this Clay?
 
-Running my Cordova applications in the iPhone simulator, I could not get console.log() to route to the Safari inspector. So I used jsconsole.com for a while. This routes console.log to a website that you can pull up and look at. This worked, but I am stealing internet from a coffee shop next door and it blows chunks. So I wrote this little node.js application to take POST data and log it to the console (Terminal). Huzzah!
+Running my Cordova applications in the iPhone simulator, I could not get console.log() to route to the Safari inspector. So I used jsconsole.com for a while. This routes console.log to a website that you can pull up and look at. This worked, but I am stealing internet from a coffee shop next door and it blows chunks. So I wrote this little node.js application to do this locally. It simply takes POST data and log it to node's console (Terminal). Huzzah!
 
 ##Future
 * some sort of intelligent var_dump (like PHP's var_dump) for logging objects.
