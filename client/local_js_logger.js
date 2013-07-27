@@ -5,7 +5,6 @@ var llog = function(info) {
         url: "http://localhost:3000/log",
         dataType: "json",
         data: {
-            time: d.getHours() + ":" + d.getMinutes (),
             info: info
         }
     });
