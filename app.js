@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var runningLog = [];
 
 function var_dump(element, depth, tab) {
     if(!depth)
@@ -29,8 +30,11 @@ function var_dump(element, depth, tab) {
 }
 
 var log = function(data) {
-    console.log("Time: " + new Date());
-    console.log("Info: " + var_dump(data));
+    var time = new Date();
+    var info = var_dump(data);
+    console.log(time);
+    console.log(info);
+    runningLog.push({time: time, info: info});
 };
 
 app.use(express.bodyParser());
@@ -38,6 +42,16 @@ app.use(express.bodyParser());
 app.post('/log', function(req, res) {
     res.send('thanks');
     log(req.body.info);
+});
+
+app.get('/log', function(req, res) {
+    var wholeLog;
+    wholeLog += '<ul>'  ;
+    runningLog.forEach(function(elem, index) {
+        wholeLog += '<li>' + elem.time + elem.info + '</li>';
+    });
+    wholeLog += '</ul>';
+    res.send(wholeLog);
 });
 
 app.listen(3000);
