@@ -5,15 +5,15 @@ A tiny logging utility when console.log isn't availiable.
 ##Usage
 
 In this directory run
-'''
+```
 npm install
-'''
+```
 
 to install dependancies. Then reference the local_js_logger.js in your js/html. Then run 
 
-'''
+```
 node app.js
-'''
+```
 
 In your js, call 
 
