@@ -2,37 +2,11 @@ var express = require('express');
 var app = express();
 var runningLog = [];
 
-function var_dump(element, depth, tab) {
-    if(!depth)
-        depth = 0;
-    if(!tab)
-        tab = '';
-
-    tab += '\t';
-    string = '';
-
-    if (typeof element == 'string') {
-        string += ': ' + element + '' + '\n';
-    } else {
-        //Loop through all the child objects in element
-        for(property in element) {
-            //Add the name and value of the child object
-            string += tab + property;
-
-            //Check if the child is an object
-            if(typeof element[property] == 'object')
-                string += '\n'+ var_dump(element[property], depth+1, tab) + '\n';
-            else
-                string += ': '+ element[property] + ''+ '\n';
-        }
-    }
-    return string;
-}
-
 var log = function(data) {
     var time = new Date();
-    var info = var_dump(data);
-    console.log(time);
+    var info = JSON.parse(data);
+
+    console.log(time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds());
     console.log(info);
     runningLog.push({time: time, info: info});
 };
